@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         userAdapter = new UserAdapter(userList, this);
         recyclerView.setAdapter(userAdapter);
 
+        // Set the MainActivity reference in the adapter
+        userAdapter.setMainActivity(this);
+
         findViewById(R.id.button_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,5 +175,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.show();
+    }
+
+    public void refreshData() {
+        fetchUsers();
     }
 }

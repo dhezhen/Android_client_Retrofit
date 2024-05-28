@@ -6,6 +6,8 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -21,8 +23,10 @@ public interface ApiService {
     @PUT("update_user.php")
     Call<Void> updateUser(@Body User user);
 
-//    @DELETE("delete_user.php")
-//    Call<Void> deleteUser(@Query("userId") int userId);
+    @DELETE("delete_user.php/{id}")
+    Call<Void> deleteUser(@Path("id") int id);
+
+
 
 
 }
